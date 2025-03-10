@@ -28,8 +28,8 @@ if [[ -s "${local_pyenv::=${PYENV_ROOT:-$HOME/.pyenv}/bin/pyenv}" ]] \
 else
   if [[ -n "$PYTHONUSERBASE" ]]; then
     path=($PYTHONUSERBASE/bin(N) $path)
-  elif is-darwin; then
-    path=($HOME/Library/Python/*/bin(N) $path)
+  # elif is-darwin; then
+  #   path=($HOME/Library/Python/*/bin(N) $path)
   else
     # This is subject to change.
     path=($HOME/.local/bin(N) $path)

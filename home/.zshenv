@@ -115,4 +115,6 @@ export XDG_CURRENT_DESKTOP=sway
 export PATH=$PATH:$HOME/.bin/dart-sass
 
 # cargo env
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi

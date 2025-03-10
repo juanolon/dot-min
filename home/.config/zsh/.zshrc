@@ -31,7 +31,7 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 
 # PROMPT
-eval "$(/home/juanolon/.cargo/bin/starship init zsh)"
+eval "$(/usr/local/bin/starship init zsh)"
 
 # COLORS
 source $ZDOTDIR/current-lscolor.zsh
