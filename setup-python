@@ -1,11 +1,16 @@
 # install pip
-sudo apt install python3-pip
+sudo apt install python3-pip pipenv
 
 # setup pyenv
 curl https://pyenv.run | bash
-# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-# echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-# echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+pyenv install 3.11.6
+pyenv global 3.11.6
 
 # setup pipenv
-pip install pipenv virtualenv
+pip install virtualenv
