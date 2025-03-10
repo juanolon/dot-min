@@ -42,3 +42,13 @@ fi
 if confirm "Do you want to setup python?"; then
     source setup-python
 fi
+
+if confirm "Do you want to setup nvim?"; then
+    cd /tmp && \
+        wget https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.tar.gz && \
+        tar -xf nvim-linux-x86_64.tar.gz && \
+        cd nvim-linux-x86_64 && \
+        sudo cp -r share /usr/local && \
+        sudo cp -r lib /usr/local && \
+        sudo cp -r bin /usr/local
+fi
