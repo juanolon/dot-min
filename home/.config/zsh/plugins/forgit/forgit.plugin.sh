@@ -1,0 +1,1 @@
+../../../../../../../../.config/zsh/plugins/forgit/forgit.plugin.zsh

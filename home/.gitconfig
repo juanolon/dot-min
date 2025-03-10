@@ -1,0 +1,66 @@
+[user]
+    name = Juan Pablo
+    email = juanolon@gmail.com
+[color]
+    status = auto
+    branch = auto
+    interactive = auto
+    diff = auto
+[help]
+    autocorrect = 1
+[core]
+    editor = nvim
+    autocrlf = input
+    ignorecase = false
+[alias]
+    s = status
+    cm = commit -m
+    co = checkout
+    cob = checkout -b
+    del = branch -D
+    br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+    res = !git reset --hard
+    done = !git push origin HEAD
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --ext-diff
+    dlog = "-c diff.external=difft log -p --ext-diff"
+    #
+    # `git log` with patches shown with difftastic.
+    dl = -c diff.external=difft log -p --ext-diff
+    # Show the most recent commit with difftastic.
+    ds = -c diff.external=difft show --ext-diff
+    # `git diff` with difftastic.
+    df = -c diff.external=difft diff
+
+[diff]
+# highlighting moved lines
+    colorMoved = default
+
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+[merge]
+    conflictstyle = diff3
+
+[mergetool]
+    keepTemporaries = false
+    prompt = false
+
+
+[advice]
+    statusHints = false
+
+[url "git@bitbucket.org:"]
+    insteadOf = https://bitbucket.org/
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = false
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

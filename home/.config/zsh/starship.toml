@@ -1,0 +1,57 @@
+# Inserts a blank line between shell prompts
+add_newline = false
+format = '$python $character'
+right_format = '$directory $git_branch'
+continuation_prompt = '..'
+palette = 'rose-pine-dawn'
+
+[character]
+# ⨁ⵣ⚘⚵⤔⨁⨂⧊⧋⚹⍾∆∇⁜※⁂ႧᏪᏫᕒᗐᗑᘎᘏᘐᎶᏜᘎᘏᘐᘓ -- gucharmap
+success_symbol = '[ᘐ [>](text)](bold success)'
+error_symbol = '[ᘓ [>](text)](bold error)'
+
+[directory]
+truncation_length = 3
+truncation_symbol = '…/'
+truncate_to_repo = true
+home_symbol = '~'
+style = 'dircolor'
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)'
+
+# before_repo_root_style = 'orange'
+# repo_root_style = 'red'
+
+[git_branch]
+symbol = 'ⵣ'
+format = '[$symbol $branch(:$remote_branch)]($style)'
+style = 'branchcolor'
+
+[python]
+style = 'pythoncolor'
+pyenv_version_name = true
+format = '[${virtualenv}]($style)'
+
+[palettes.minimal]
+text = 'gray'
+success = 'green'
+error = 'red'
+pythoncolor = 'green'
+branchcolor = 'blue'
+# dircolor = 'white'
+dircolor = 'color5'
+
+[palettes.rose-pine-moon]
+text = '#e0def4' # Text
+success = '#3e8fb0' # Pine
+error = '#eb6f92' # Love
+pythoncolor = '#9ccfd8' # Foam
+branchcolor = '#c4a7e7' # Iris
+dircolor = '#908caa' # Subtle
+
+[palettes.rose-pine-dawn]
+text = '#575279' # Text
+success = '#286983' # Pine
+error = '#b4637a' # Love
+pythoncolor = '#56949f' # Foam
+branchcolor = '#907aa9' # Iris
+dircolor = '908caa' # Subtle
