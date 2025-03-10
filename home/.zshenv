@@ -3,8 +3,8 @@ export VISUAL="nvim"
 
 export DOTFILES="$HOME/repos/dotfiles-linux"
 
-# export MANPAGER='nvim +Man!'
-export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+export MANPAGER='nvim +Man!'
+# export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
