@@ -11,8 +11,9 @@ confirm() {
     done
 }
 
-sudo apt install neovim zsh tig curl jq unzip curl silversearcher-ag fd-find ripgrep zip build-essential zlib1g-dev libffi-dev libssl-dev libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev cmake
+sudo apt install neovim zsh tig curl jq unzip silversearcher-ag fd-find ripgrep zip build-essential zlib1g-dev libffi-dev libssl-dev libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev cmake
 
+# this are dependencies for my zsh setup
 if confirm "Do you want to setup starship?"; then
     curl -sS https://starship.rs/install.sh | sh
 fi
@@ -41,4 +42,20 @@ fi
 
 if confirm "Do you want to setup python?"; then
     source setup-python
+fi
+
+if confirm "Do you want to setup go?"; then
+    source setup-go
+fi
+
+if confirm "Do you want to setup rust?"; then
+    curl https://sh.rustup.rs -sSf | sh
+fi
+
+if confirm "Do you want to setup docker?"; then
+    source setup-docker
+fi
+
+if confirm "Do you want to setup flutter?"; then
+    echo "TODO"
 fi
