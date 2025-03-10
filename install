@@ -19,9 +19,10 @@ if confirm "Do you want to setup starship?"; then
 fi
 
 if confirm "Do you want to setup jump?"; then
-    cd /tmp && \
-    wget https://github.com/gsamokovarov/jump/releases/download/v0.51.0/jump_0.51.0_amd64.deb && \
+    cd /tmp
+    wget https://github.com/gsamokovarov/jump/releases/download/v0.51.0/jump_0.51.0_amd64.deb
     sudo dpkg -i jump_0.51.0_amd64.deb
+    cd -
 fi
 
 if confirm "Do you want to setup mcfly?"; then
@@ -36,6 +37,7 @@ if [ "$CURRENT_SHELL" != "/usr/bin/zsh" ]; then
         cd $HOME
         chsh -s /usr/bin/zsh
         echo "Shell changed to Zsh. Please log out and log back in for the change to take effect."
+        cd -
     fi
 fi
 
