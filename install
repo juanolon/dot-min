@@ -19,7 +19,16 @@ wget https://github.com/gsamokovarov/jump/releases/download/v0.51.0/jump_0.51.0_
 
 curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sudo sh -s -- --git cantino/mcfly
 
-chsh -s /usr/bin/zsh
+CURRENT_SHELL=$(getent passwd "$USER" | cut -d: -f7)
+
+if [ "$CURRENT_SHELL" != "/usr/bin/zsh" ]; then
+    echo "Your default shell is not Zsh."
+    if confirm "Do you want to change your shell to Zsh?"; then
+        cd $HOME
+        chsh -s /usr/bin/zsh
+        echo "Shell changed to Zsh. Please log out and log back in for the change to take effect."
+    fi
+fi
 
 
 if confirm "Do you want to setup python?"; then
