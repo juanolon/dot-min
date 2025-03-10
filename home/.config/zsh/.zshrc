@@ -42,7 +42,7 @@ autoload -Uz archive
 autoload -Uz lsarchive
 autoload -Uz unarchive
 
-eval "$(jump shell)"
+eval "$(jump shell zsh)"
 
 # forgit
 export PATH=$PATH:$ZDOTDIR/plugins/git-fuzzy/bin
