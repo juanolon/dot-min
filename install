@@ -1,3 +1,16 @@
+#!/bin/bashsetup-python
+
+confirm() {
+    while true; do
+        read -rp "$1 (yes/no): " choice
+        case "$choice" in
+            yes|y) return 0 ;;
+            no|n) return 1 ;;
+            *) echo "Please answer yes or no." ;;
+        esac
+    done
+}
+
 sudo apt install neovim zsh tig curl jq unzip curl silversearcher-ag fd-find ripgrep zip build-essential zlib1g-dev libffi-dev libssl-dev libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev cmake
 
 curl -sS https://starship.rs/install.sh | sh
@@ -7,3 +20,8 @@ wget https://github.com/gsamokovarov/jump/releases/download/v0.51.0/jump_0.51.0_
 curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sudo sh -s -- --git cantino/mcfly
 
 chsh -s /usr/bin/zsh
+
+
+if confirm "Do you want to setup python?"; then
+    source setup-python
+fi
