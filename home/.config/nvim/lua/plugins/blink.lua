@@ -1,5 +1,3 @@
-local ls = require('luasnip')
-
 return {
     {
         'saghen/blink.cmp',
@@ -17,7 +15,7 @@ return {
             'L3MON4D3/LuaSnip'
         },
         lazy = false,
-        version = 'v0.10.0',
+        version = 'v0.13.1',
         opts = {
             keymap = {
                 ['<C-k>'] = { 'select_prev', 'fallback' },
