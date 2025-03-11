@@ -1,6 +1,7 @@
 return {
     {
         "rose-pine/neovim",
+        name = "rose-pine",
         config = function()
             require("rose-pine").setup {
                 highlight_groups = {
@@ -23,6 +24,7 @@ return {
                     TelescopePromptBorder = { fg = "surface", bg = "surface" },
                 },
             }
+            vim.cmd("colorscheme rose-pine")
         end,
     }
 }

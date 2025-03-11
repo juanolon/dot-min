@@ -23,9 +23,6 @@ require("callbacks")
 require("background-mode")
 require("lsp")
 
-vim.cmd 'colorscheme rose-pine'
-
-
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
@@ -36,7 +33,7 @@ require("lazy").setup({
         enabled = false,
     },
     install = {
-        colorscheme = { "rose-pine" },
+        -- colorscheme = { "rose-pine" },
         missing = false,
     },
     -- automatically check for plugin updates
