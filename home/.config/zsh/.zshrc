@@ -151,3 +151,5 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 # SYNTAX HIGHLIGHTING
 # must be at the end of file
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+. "$HOME/.local/share/../bin/env"
