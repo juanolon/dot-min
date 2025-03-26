@@ -15,7 +15,7 @@ return {
             'L3MON4D3/LuaSnip'
         },
         lazy = false,
-        version = 'v0.13.1',
+        version = 'v1.0.0',
         opts = {
             keymap = {
                 ['<C-k>'] = { 'select_prev', 'fallback' },
@@ -52,7 +52,8 @@ return {
                         module = 'render-markdown.integ.blink',
                         fallbacks = { 'lsp' },
                     },
-                }
+                },
+                min_keyword_length = 0,
             },
             completion = {
                 keyword = { range = 'full' },
@@ -71,17 +72,17 @@ return {
                         enabled = true,
                     },
                 },
-                documentation = {
-                    auto_show = true,
-                    window = {
-                        border = 'single',
-                    }
-                },
                 menu = {
                     border = 'single',
                     draw = {
                         treesitter = {'lsp'},
                     },
+                },
+                documentation = {
+                    auto_show = true,
+                    window = {
+                        border = 'single',
+                    }
                 },
             },
             signature = {

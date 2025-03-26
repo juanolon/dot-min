@@ -23,7 +23,7 @@ alias lsd='ls -ld *(-/DN)' ## list only dirs
 alias :q='exit'
 
 # git
-# alias gd='git diff'
+alias gd='git df'
 alias gs='git status'
 # alias commit='git commit -m'
 # alias gA='git add -A'

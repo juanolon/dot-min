@@ -16,13 +16,17 @@ return {
         },
         -- Everything in opts will be passed to setup()
         opts = {
+            -- log_level = vim.log.levels.TRACE,
             -- Define your formatters
             formatters_by_ft = {
                 lua = { "stylua" },
                 python = { "ruff_format", "ruff_fix" },
                 go = { "goimports", "gofmt" },
                 -- python = { "isort", "black" },
-                -- javascript = { { "prettierd", "prettier" } },
+                javascript = { "prettier" },
+                scss = { "prettier" },
+                css = { "prettier" },
+                -- html = { "superhtml" },
             },
             -- Set up format-on-save
             format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
@@ -30,6 +34,9 @@ return {
             formatters = {
                 shfmt = {
                     prepend_args = { "-i", "2" },
+                },
+                prettier = {
+                    require_cwd = true
                 },
             },
         },

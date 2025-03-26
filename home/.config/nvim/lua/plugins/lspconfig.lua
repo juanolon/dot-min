@@ -22,13 +22,18 @@ return {
         config = function()
             local lspconfig = require 'lspconfig'
             local function capabilities()
-                return vim.tbl_deep_extend(
+                local caps = vim.tbl_deep_extend(
                     'force',
                     vim.lsp.protocol.make_client_capabilities(),
                     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers.
                     -- require('cmp_nvim_lsp').default_capabilities(),
                     require('blink.cmp').get_lsp_capabilities()
                 )
+                caps.textDocument.formatting = nil
+                caps.textDocument.rangeFormatting = nil
+                -- caps.textDocument.documentFormattingProvider = nil
+                -- caps.textDocument.documentRangeFormattingProvider = nil
+                return caps
             end
 
             require('lspconfig.ui.windows').default_options.border = 'rounded'
@@ -54,6 +59,11 @@ return {
                     -- latex
                     'texlab',
                     'ltex',   -- language tool grammar/spelling erros for latex/markdown
+                    -- web
+                    'phpactor',
+                    -- 'prettierd',
+                    'superhtml',
+                    'angularls',
                     -- 'harper_ls',
                     --
                     -- notes

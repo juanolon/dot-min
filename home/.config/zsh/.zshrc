@@ -45,10 +45,10 @@ autoload -Uz unarchive
 eval "$(jump shell zsh)"
 
 # forgit
-export PATH=$PATH:$ZDOTDIR/plugins/git-fuzzy/bin
+# export PATH=$PATH:$ZDOTDIR/plugins/git-fuzzy/bin
 
-source $ZDOTDIR/plugins/forgit/forgit.plugin.zsh
-export PATH=$PATH:$ZDOTDIR/plugins/forgit/bin
+# source $ZDOTDIR/plugins/forgit/forgit.plugin.zsh
+# export PATH=$PATH:$ZDOTDIR/plugins/forgit/bin
 
 # ALIASES
 source $ZDOTDIR/aliases.zsh
@@ -151,3 +151,5 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 # SYNTAX HIGHLIGHTING
 # must be at the end of file
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+. "$HOME/.local/share/../bin/env"

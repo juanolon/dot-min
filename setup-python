@@ -11,3 +11,5 @@ pyenv global 3.11.6
 
 # setup pipenv
 pip install virtualenv jupyter-ascending i3ipc pynvim
+
+curl -LsSf https://astral.sh/uv/install.sh | sh

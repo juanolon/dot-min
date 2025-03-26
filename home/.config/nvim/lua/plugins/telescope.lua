@@ -46,7 +46,6 @@ return {
         end,
         opts = {
             defaults = {
-                -- Your defaults config goes in here
                 mappings = {
                     i = {
                         ["<C-j>"] = actions("move_selection_next"),
@@ -64,6 +63,7 @@ return {
                     "--color=never",
                     "--no-heading",
                     "--with-filename",
+                    "--follow",
                     "--line-number",
                     "--column",
                     "--smart-case"
@@ -73,7 +73,16 @@ return {
             pickers = {
                 buffers ={
                     theme = "dropdown",
-                }
+                },
+                find_files = {
+                    find_command = {
+                        "fd",
+                        "--type",
+                        "f",
+                        "--strip-cwd-prefix",
+                        "--follow"
+                    },
+                },
             },
             extensions = {
                 luasnip = {
