@@ -15,6 +15,7 @@ setopt PUSHD_SILENT         # Do not print the directory stack after pushd or po
 setopt CORRECT              # Spelling correction
 setopt CDABLE_VARS          # Change directory to a path stored in a variable.
 setopt EXTENDED_GLOB        # Use extended globbing syntax.
+setopt IGNORE_EOF           # dont close the shell when ctrl-D
 
 # +---------+
 # | HISTORY |

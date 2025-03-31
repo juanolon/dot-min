@@ -61,8 +61,9 @@ return {
                     'ltex',   -- language tool grammar/spelling erros for latex/markdown
                     -- web
                     'phpactor',
+                    'ts_ls',
                     -- 'prettierd',
-                    'superhtml',
+                    -- phpcbf
                     'angularls',
                     -- 'harper_ls',
                     --

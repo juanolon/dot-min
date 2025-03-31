@@ -40,17 +40,20 @@ return {
                 ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
             },
             sources = {
-                default = { 'lsp', 'snippets', 'copilot', 'path', 'buffer', 'cmdline', 'markdown' },
+                default = { 'lsp', 'snippets', 'copilot', 'path', 'buffer', 'cmdline' },
                 providers = {
                     copilot = {
                         name = 'copilot',
                         module = 'blink-cmp-copilot',
                         -- score_offset = -3,
                     },
-                    markdown = {
-                        name = 'RenderMarkdown',
-                        module = 'render-markdown.integ.blink',
-                        fallbacks = { 'lsp' },
+                    -- markdown = {
+                    --     name = 'RenderMarkdown',
+                    --     module = 'render-markdown.integ.blink',
+                    --     fallbacks = { 'lsp' },
+                    -- },
+                    lsp = {
+                        min_keyword_length = 0,
                     },
                 },
                 min_keyword_length = 0,

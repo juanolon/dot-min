@@ -23,10 +23,11 @@ return {
                 python = { "ruff_format", "ruff_fix" },
                 go = { "goimports", "gofmt" },
                 -- python = { "isort", "black" },
+                html = { "prettier" },
                 javascript = { "prettier" },
                 scss = { "prettier" },
                 css = { "prettier" },
-                -- html = { "superhtml" },
+                php = { "phpcbf" }
             },
             -- Set up format-on-save
             format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
