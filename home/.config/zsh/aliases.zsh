@@ -35,6 +35,7 @@ alias tree='tree -CA -L 3'
 alias treed='tree -dCA -L 3'
 
 alias json='jq'
+# alias n='nvim'
 
 ## global aliases, this is not good but it's useful
 # alias -g L='|less'

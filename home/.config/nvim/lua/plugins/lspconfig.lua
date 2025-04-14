@@ -228,6 +228,9 @@ return {
                             end,
                         }
                     end,
+                    ltex = {
+                        enabled = { "bibtex", "gitcommit", "markdown", "org", "tex", "restructuredtext", "rsweave", "latex", "quarto", "rmd", "context", "mail", "plaintext" }
+                    },
                     -- ltex = function ()
                         -- require'ltex-ls'.setup {
                         --     on_attach = on_attach,
