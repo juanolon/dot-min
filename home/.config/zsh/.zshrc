@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
-fpath=($ZDOTDIR/plugins $fpath)
+zmodload zsh/zprof
+fpath+=($ZDOTDIR/plugins $fpath)
 
 # +------------+
 # | NAVIGATION |
@@ -45,25 +46,19 @@ autoload -Uz unarchive
 
 eval "$(jump shell zsh)"
 
-# forgit
-# export PATH=$PATH:$ZDOTDIR/plugins/git-fuzzy/bin
-
-# source $ZDOTDIR/plugins/forgit/forgit.plugin.zsh
-# export PATH=$PATH:$ZDOTDIR/plugins/forgit/bin
-
-# ALIASES
-source $ZDOTDIR/aliases.zsh
-
-# COMPLETION
-# use modified zpresto completion settings
-source $ZDOTDIR/completion.zsh
-
 # BINDINGS
 
 # zzbindings: original zpresto bindings file
 # zbindings: striped version of zpresto bindings file
 source "$ZDOTDIR/zbindings.zsh"
-# source "$ZDOTDIR/zzbindings.zsh"
+
+# COMPLETION
+# use modified zpresto completion settings
+source $ZDOTDIR/completion.zsh
+
+
+# ALIASES
+source $ZDOTDIR/aliases.zsh
 
 # TODO move this to bindings file
 # ^d should not close the window
@@ -134,23 +129,39 @@ export MCFLY_INTERFACE_VIEW=BOTTOM
 export MCFLY_PROMPT="※"
 eval "$(mcfly init zsh)"
 
-# nvm: node version manager
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# pnpm
-export PNPM_HOME="/home/juanolon/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+# Alternative:
+# if using this method of defering, consider using this:
+# https://github.com/qoomon/zsh-lazyload
+# Also related, when using a lot of "eval", they can be cached:
+# https://github.com/mroth/evalcache
+function lazy_nvm {
+  unset -f nvm
+  unset -f npm
+  unset -f node
+  unset -f npx
+
+  if [ -d "${HOME}/.config/nvm" ]; then
+    export NVM_DIR="$HOME/.config/nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  fi
+}
+
+# aliases
+function nvm { lazy_nvm; nvm "$@"; }
+function npm { lazy_nvm; npm "$@"; }
+function node { lazy_nvm; node "$@"; }
+function npx { lazy_nvm; npx "$@"; }
 
 # homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 # SYNTAX HIGHLIGHTING
 # must be at the end of file
-source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+load-zsh-syntax-highlighting() {
+  add-zsh-hook -d precmd load-zsh-syntax-highlighting
+  source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+}
+add-zsh-hook precmd load-zsh-syntax-highlighting
 
 . "$HOME/.local/share/../bin/env"
+zprof

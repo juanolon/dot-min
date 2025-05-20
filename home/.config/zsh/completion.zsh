@@ -1,6 +1,6 @@
 # Add zsh-completions to $fpath.
-fpath=($ZDOTDIR/plugins/zsh-completions/src $ZDOTDIR/completions $fpath)
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+fpath+=($ZDOTDIR/plugins/zsh-completions/src $ZDOTDIR/completions $fpath)
+fpath+=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 #
 # Options
@@ -24,37 +24,23 @@ unsetopt FLOW_CONTROL       # Disable start/stop characters in shell editor.
 LS_COLORS=${LS_COLORS:-'di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'}
 
 #
-# Initialization
-#
-
-# Load and initialize the completion system ignoring insecure directories with a
-# cache time of 20 hours, so it should almost always regenerate the first time a
-# shell is opened each day.
-autoload -Uz compinit
-_comp_path="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
-# #q expands globs in conditional expressions
-if [[ $_comp_path(#qNmh-20) ]]; then
-  # -C (skip function check) implies -i (skip security check).
-  compinit -C -d "$_comp_path"
-else
-  mkdir -p "$_comp_path:h"
-  compinit -i -d "$_comp_path"
-  # Keep $_comp_path younger than cache time even if it isn't regenerated.
-  touch "$_comp_path"
-fi
-unset _comp_path
-
-#
 # Styles
 #
+
+# Cache
+_comp_path="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+zstyle ':completion::*' use-cache on
+zstyle ':completion::*' cache-path "$_comp_path"
+
+autoload -Uz compinit
+
+# defered compinit -> zbindings.zsh
+# compinit will be called when Tab is pressed.
+# see zbindings `bindkey '^I' __defer_compinit` for more info
 
 # Defaults.
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-
-# Use caching to make completion for commands such as dpkg and apt usable.
-zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
 
 # Case-insensitive (all), partial-word, and then substring completion.
 if zstyle -t ':prezto:module:completion:*' case-sensitive; then

@@ -1,4 +1,4 @@
-setopt BEEP                     # Beep on error in line editor.
+# setopt BEEP                     # Beep on error in line editor.
 
 #
 # Variables
@@ -102,6 +102,21 @@ function expand-or-complete-with-indicator {
 }
 zle -N expand-or-complete-with-indicator
 
+
+function __defer_compinit {
+    zle -D __defer_compinit
+    bindkey -r '^I'
+
+    compinit -C -d "$_comp_path"
+
+    zle expand-or-complete-with-indicator
+
+    bindkey '^I' expand-or-complete-with-indicator
+}
+zle -N __defer_compinit
+bindkey '^I' __defer_compinit
+
+
 # Inserts 'sudo ' at the beginning of the line.
 function prepend-sudo {
   if [[ "$BUFFER" != su(do|)\ * ]]; then
@@ -199,14 +214,15 @@ for keymap in 'emacs' 'viins'; do
   bindkey -M "$keymap" "$key_info[BackTab]" reverse-menu-complete
 
   # Complete in the middle of word.
-  bindkey -M "$keymap" "$key_info[Control]I" expand-or-complete
+  # bindkey -M "$keymap" "$key_info[Control]I" expand-or-complete
+  bindkey -M "$keymap" "$key_info[Control]I" __defer_compinit
+
+  # Display an indicator when completing.
+  # bindkey -M "$keymap" "$key_info[Control]I" \
+  #   expand-or-complete-with-indicator
 
   # Expand .... to ../..
   bindkey -M "$keymap" "." expand-dot-to-parent-directory-path
-
-  # Display an indicator when completing.
-  bindkey -M "$keymap" "$key_info[Control]I" \
-    expand-or-complete-with-indicator
 
   # Insert 'sudo ' at the beginning of the line.
   bindkey -M "$keymap" "$key_info[Control]X$key_info[Control]S" prepend-sudo

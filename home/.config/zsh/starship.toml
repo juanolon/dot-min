@@ -7,8 +7,8 @@ palette = 'rose-pine-dawn'
 
 [character]
 # ⨁ⵣ⚘⚵⤔⨁⨂⧊⧋⚹⍾∆∇⁜※⁂ႧᏪᏫᕒᗐᗑᘎᘏᘐᎶᏜᘎᘏᘐᘓ -- gucharmap
-success_symbol = '[ᘐ [>](text)](bold success)'
-error_symbol = '[ᘓ [>](text)](bold error)'
+success_symbol = '[∆ (text)](bold success)'
+error_symbol = '[∇ (text)](bold error)'
 
 [directory]
 truncation_length = 3
@@ -22,7 +22,7 @@ repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($re
 # repo_root_style = 'red'
 
 [git_branch]
-symbol = 'ⵣ'
+symbol = '⁜'
 format = '[$symbol $branch(:$remote_branch)]($style)'
 style = 'branchcolor'
 
