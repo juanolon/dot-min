@@ -107,7 +107,7 @@ function __defer_compinit {
     zle -D __defer_compinit
     bindkey -r '^I'
 
-    compinit -C -d "$_comp_path"
+    compinit -C -d "$_comp_path/zcompdump"
 
     zle expand-or-complete-with-indicator
 
