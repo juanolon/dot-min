@@ -4,6 +4,7 @@ return {
         event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
             -- 'vigoux/ltex-ls.nvim',
+            'hrsh7th/nvim-cmp',
             'saghen/blink.cmp',
             'williamboman/mason-lspconfig.nvim',
             {
@@ -26,8 +27,8 @@ return {
                     'force',
                     vim.lsp.protocol.make_client_capabilities(),
                     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers.
-                    -- require('cmp_nvim_lsp').default_capabilities(),
-                    require('blink.cmp').get_lsp_capabilities()
+                    require('cmp_nvim_lsp').default_capabilities()
+                    -- require('blink.cmp').get_lsp_capabilities()
                 )
                 caps.textDocument.formatting = nil
                 caps.textDocument.rangeFormatting = nil

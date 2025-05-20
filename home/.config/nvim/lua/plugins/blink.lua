@@ -1,6 +1,7 @@
 return {
     {
         'saghen/blink.cmp',
+        enabled = false,
         dependencies = {
             -- {
             --     'saghen/blink.compat',
@@ -15,7 +16,7 @@ return {
             'L3MON4D3/LuaSnip'
         },
         lazy = false,
-        version = 'v1.0.0',
+        version = 'v1.1.1',
         opts = {
             keymap = {
                 ['<C-k>'] = { 'select_prev', 'fallback' },
@@ -28,15 +29,13 @@ return {
 
                 ['<C-l>'] = { 'select_and_accept' },
 
-                ['<Tab>'] = {
-                    function(cmp)
-                        if cmp.snippet_active() then
-                            return cmp.snippet_forward()
-                        end
-                    end,
-                    -- 'snippet_forward',
-                    'fallback'
-                },
+                -- ['<Tab>'] = {
+                --     function()
+                --         return require('luasnip').choice_active() and require('luasnip').change_choice(1)
+                --     end,
+                --     'fallback'
+                -- },
+                ['<Tab>'] = { 'snippet_forward', 'fallback' },
                 ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
             },
             sources = {

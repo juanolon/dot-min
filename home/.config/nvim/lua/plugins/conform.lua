@@ -1,3 +1,12 @@
+local function find_phpcbf()
+  local git_dir = vim.fs.find('.git', { upward = true, type = 'directory' })[1]
+  if not git_dir then
+    return nil -- fallback or error
+  end
+  local root = vim.fs.dirname(git_dir)
+  return root .. '/smart_study_pro_api/phpcbf.sh'
+end
+
 return {
     {
         "stevearc/conform.nvim",
@@ -16,8 +25,12 @@ return {
         },
         -- Everything in opts will be passed to setup()
         opts = {
+            log_level = vim.log.levels.DEBUG,
             -- log_level = vim.log.levels.TRACE,
             -- Define your formatters
+            format_on_save = {
+                timeout_ms = 3000, -- 3 seconds
+            },
             formatters_by_ft = {
                 lua = { "stylua" },
                 python = { "ruff_format", "ruff_fix" },
@@ -39,6 +52,21 @@ return {
                 prettier = {
                     require_cwd = true
                 },
+                -- phpcbf = {
+                --     -- command = vim.fn.expand("~/.bin/phpcbf"),
+                --     -- command = find_phpcbf,
+                --     -- args = { "--standard=SlevomatCodingStandard", "$FILENAME" },
+                --     -- args = { "$RELATIVE_FILEPATH" },
+                --     args = { "--fix","$RELATIVE_FILEPATH" },
+                --     --
+                --     -- stdin = true,
+                --     -- args = { "--stdin-path", "$FILENAME", "-" },
+                --     --
+                --     -- args = { "$FILENAME" },
+                --     stdin = false,
+                --     tmpfile_format = "conform.$RANDOM.$FILENAME",
+                --     timeout = 10000,
+                -- },
             },
         },
         init = function()

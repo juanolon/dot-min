@@ -40,7 +40,7 @@ local cmp_kinds = {
 return {
     {
         'hrsh7th/nvim-cmp',
-        enabled = false,
+        enabled = true,
         dependencies = {
             "L3MON4D3/LuaSnip",
             {

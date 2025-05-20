@@ -74,6 +74,7 @@ return {
                 "typescript",
                 "latex",
                 "comment",
+                "php",
                 'regex',
                 'yaml',
             },

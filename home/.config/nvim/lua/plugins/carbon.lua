@@ -9,7 +9,7 @@ return {
             {
                 "<leader>e",
                 function()
-                    require("carbon").toggle_sidebar()
+                    require("carbon").explore_left({bang = true})
                 end,
                 mode = "",
                 desc = "Open explorer",
