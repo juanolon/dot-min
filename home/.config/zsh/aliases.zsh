@@ -270,8 +270,8 @@ s-widget() {
   s
   zle reset-prompt
 }
-zle -N e-widget
-bindkey '^S' e-widget
+zle -N s-widget
+bindkey '^S' s-widget
 
 n() (
   RELOAD='reload:docsim --show-scores --limit 5 --best-first {q} ~/notes/**/*.md || :'

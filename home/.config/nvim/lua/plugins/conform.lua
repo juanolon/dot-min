@@ -25,7 +25,7 @@ return {
         },
         -- Everything in opts will be passed to setup()
         opts = {
-            log_level = vim.log.levels.DEBUG,
+            log_level = vim.log.levels.ERROR,
             -- log_level = vim.log.levels.TRACE,
             -- Define your formatters
             format_on_save = {

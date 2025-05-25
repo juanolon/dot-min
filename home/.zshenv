@@ -44,6 +44,13 @@ export GOPATH=$HOME/gocode
 export PATH=$PATH:/usr/local/go/bin:/home/juanolon/gocode/bin
 # }}}
 
+
+# PHP {{{
+# if composer installed: composer global config bin-dir --absolute --quiet
+export COMPOSER_HOME=/home/juanolon/.config/composer
+export PATH=$PATH:/home/juanolon/.config/composer/vendor/bin
+# }}}
+
 # ANDROID {{
 export ANDROID_SDK_ROOT=${HOME}/.android
 export ANDROID_HOME=${HOME}/.android/

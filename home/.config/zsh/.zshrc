@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-zmodload zsh/zprof
+# zmodload zsh/zprof
 fpath+=($ZDOTDIR/plugins $fpath)
 
 # +------------+
@@ -164,4 +164,4 @@ load-zsh-syntax-highlighting() {
 add-zsh-hook precmd load-zsh-syntax-highlighting
 
 . "$HOME/.local/share/../bin/env"
-zprof
+# zprof
