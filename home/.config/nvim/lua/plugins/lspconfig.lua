@@ -59,6 +59,7 @@ return {
                 },
             })
             vim.lsp.config("ts_ls", {
+                capabilities = capabilities(),
                 filetypes = {
                     "typescript", "typescriptreact", "typescript.tsx"
                 },

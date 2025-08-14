@@ -24,5 +24,8 @@ return {
                 desc = "Display template typecheck block",
             },
         },
+    },
+    {
+        "pmizio/typescript-tools.nvim",
     }
 }

@@ -189,7 +189,7 @@ f() {
         --bind "ctrl-e:abort" \
         --bind "ctrl-d:abort" \
         --bind "ctrl-r:abort" \
-        --preview '[[ -d {1} ]] && tree -C {1} | head -200 || batcat --style=full --color=always {1}' \
+        --preview '[[ -d {1} ]] && tree -C {1} | head -200 || batcat --theme ansi --style=full --color=always {1}' \
         --preview-window 'nohidden,40%,<50(down,50%,border-rounded)' \
         --expect ctrl-h,ctrl-e,ctrl-d,ctrl-r,enter
     )
@@ -260,7 +260,7 @@ s() (
       --bind "ctrl-o:execute:$OPENER" \
       --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
       --delimiter : \
-      --preview 'batcat --style=full --color=always --line-range=:500 --highlight-line {2} {1}' \
+      --preview 'batcat --theme ansi --style=full --color=always --line-range=:500 --highlight-line {2} {1}' \
     --preview-window "nohidden,40%,<50(down,50%,border-rounded)" \
       --query "$*"
 )
@@ -287,7 +287,7 @@ n() (
       --bind "ctrl-o:execute:$OPENER" \
       --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
       --delimiter "\\t" \
-      --preview 'batcat --style=full --color=always --line-range=:500 {2}' \
+      --preview 'batcat --theme ansi --style=full --color=always --line-range=:500 {2}' \
       --preview-window '~4,<80(up)' \
       --query "$*"
 )

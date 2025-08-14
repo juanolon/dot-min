@@ -21,6 +21,7 @@
     br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
     res = !git reset --hard
     done = !git push origin HEAD
+    get = !git pull origin HEAD
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --ext-diff
     dlog = "-c diff.external=difft log -p --ext-diff"
     #

@@ -46,6 +46,7 @@ return {
         end,
         opts = {
             defaults = {
+                path_display = { "smart" }, -- truncate
                 mappings = {
                     i = {
                         ["<C-j>"] = actions("move_selection_next"),
@@ -73,8 +74,11 @@ return {
             pickers = {
                 buffers ={
                     theme = "dropdown",
+                    layout_config = { width = 0.60 },
                 },
                 find_files = {
+                    theme = "dropdown",
+                    layout_config = { height = 0.40, width = 0.95 },
                     find_command = {
                         "fd",
                         "--type",
@@ -82,6 +86,10 @@ return {
                         "--strip-cwd-prefix",
                         "--follow"
                     },
+                },
+                live_grep = {
+                    theme = "dropdown",
+                    layout_config = { width = 0.95 },
                 },
             },
             extensions = {
